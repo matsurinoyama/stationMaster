@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everyone's Stationmaster / みんなの駅長</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="language-page">
+    <div class="language-selector" id="selector">
+      <h1>みんなの駅長 / Everyone's Stationmaster</h1>
+      <p>言語を選択してください / Please select your language</p>
+      <div class="buttons">
+        <a href="jp/" class="btn-ja">日本語</a>
+        <a href="en/" class="btn-en">English</a>
+      </div>
+    </div>
+
+    <script>
+      // Detect user's preferred language from browser settings
+      function detectLanguage() {
+        const userLang = navigator.language || navigator.userLanguage;
+        // Check if Japanese is preferred
+        if (userLang.startsWith("ja")) {
+          return "ja";
+        }
+        // Default to English for all other languages
+        return "en";
+      }
+
+      // Auto-redirect based on browser language (with 1.5 second delay to allow manual selection)
+      const preferredLang = detectLanguage();
+      const selector = document.getElementById("selector");
+
+      // Show loading message
+      const loadingMsg = document.createElement("p");
+      loadingMsg.className = "loading";
+      loadingMsg.textContent =
+        preferredLang === "ja"
+          ? "日本語版に自動で移動します..."
+          : "Redirecting you to theEnglish version...";
+      loadingMsg.style.marginTop = "20px";
+      loadingMsg.style.fontSize = "14px";
+      selector.appendChild(loadingMsg);
+
+      // Redirect after delay
+      setTimeout(() => {
+        if (preferredLang === "ja") {
+          window.location.href = "jp/";
+        } else {
+          window.location.href = "en/";
+        }
+      }, 1500);
+    </script>
+  </body>
+</html>

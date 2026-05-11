@@ -1,0 +1,14 @@
+[Unit]
+Description=StationMaster downloader loop (runs continuously)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=matsurinoyama
+ExecStart=/bin/bash /home/matsurinoyama/stationMaster/scripts/download_faces.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

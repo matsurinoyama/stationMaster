@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Everyone's Stationmaster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-lang="en">
+    <header class="app-header">
+      <h1>Everyone's Stationmaster</h1>
+      <p class="subtitle">
+        Upload your photo here to participate in "Everyone's Stationmaster" held at Kino Station in Kyoto!
+        Your uploaded photo will appear in the artwork until the "Future of Eiden" art project ends.
+      </p>
+      <div style="text-align: right; margin-top: 8px;">
+        <a href="../jp/" class="privacy-link" style="font-size: 14px;">日本語</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Step 1: Choose method -->
+      <section id="step-choice" class="step active">
+        <h2>Choose Photo Submission Method</h2>
+        <div class="choice-buttons">
+          <button id="chooseUpload" class="choice-btn">
+            <span class="icon">📁</span>
+            <span class="text">Upload an Existing Photo</span>
+          </button>
+          <button id="chooseCamera" class="choice-btn">
+            <span class="icon">📷</span>
+            <span class="text">Take a New Photo</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 2: Upload existing photo -->
+      <section id="step-upload" class="step">
+        <h2>Upload Existing Photo</h2>
+        <div class="upload-area">
+          <input type="file" accept="image/jpeg,image/png,image/heic,image/heif,image/webp" id="fileInput" name="image" />
+          <div class="upload-hint">
+            Select a photo from your device
+          </div>
+        </div>
+        <div class="step-controls">
+          <button id="backFromUpload" class="btn-secondary">Back</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Camera capture -->
+      <section id="step-camera" class="step">
+        <h2>Take New Photo</h2>
+        <div class="camera">
+          <div class="video-wrap">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="overlay" aria-hidden="true"></canvas>
+            <div class="guidance" id="guidanceText">
+                Align your face in the oval and capture when ready.
+            </div>
+          </div>
+          <div class="controls">
+            <button id="captureBtn" disabled>Capture</button>
+            <button id="backFromCamera" class="btn-secondary" disabled>Back</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Preview and confirm -->
+      <section id="step-preview" class="step">
+        <h2>Preview Your Photo</h2>
+        <div class="hint">
+            Photo tips: Face forward, eyes open, neutral expression. Remove hats and glasses if possible.
+        </div>
+        <div id="preview" class="preview-large"></div>
+        <div class="preview-controls">
+          <button id="confirmUpload" class="btn-primary">
+            Confirm and Upload
+          </button>
+          <button id="retryPhoto" class="btn-secondary">Retry</button>
+        </div>
+        <div class="hint">
+            By uploading, you agree to our <a href="privacy.html" class="privacy-link">Privacy Policy</a>.
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <p>
+        For information about how personal data is handled in "Everyone's Stationmaster", please see our <a href="privacy.html" class="privacy-link">Privacy Policy</a>.<br>© 2025 <a href="https://03080.jp" class="privacy-link">03080.jp</a>
+      </p>
+    </footer>
+    <script src="../app.js"></script>
+  </body>
+</html>

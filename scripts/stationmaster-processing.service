@@ -1,0 +1,15 @@
+[Unit]
+Description=StationMaster Processing single-run at boot
+After=graphical.target display-manager.service
+Wants=graphical.target
+
+[Service]
+Type=oneshot
+User=matsurinoyama
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/matsurinoyama/.Xauthority
+ExecStart=/bin/bash /home/matsurinoyama/stationMaster/scripts/start_processing_once.sh
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

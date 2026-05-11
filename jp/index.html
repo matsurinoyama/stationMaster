@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>みんなの駅長</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-lang="ja">
+    <header class="app-header">
+      <h1>みんなの駅長</h1>
+      <p class="subtitle">
+        ここから写真をアップロードして、京都・木野駅で開催される「みんなの駅長」に参加しよう！
+        アップロードされた写真は、「未来のえいでん」アートプロジェクトが終了するまで作品の中で登場します。
+      </p>
+      <div style="text-align: right; margin-top: 8px;">
+        <a href="../en/" class="privacy-link" style="font-size: 14px;">English</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Step 1: Choose method -->
+      <section id="step-choice" class="step active">
+        <h2>写真を投稿する方法</h2>
+        <div class="choice-buttons">
+          <button id="chooseUpload" class="choice-btn">
+            <span class="icon">📁</span>
+            <span class="text">既存の写真をアップロードする</span>
+          </button>
+          <button id="chooseCamera" class="choice-btn">
+            <span class="icon">📷</span>
+            <span class="text">新しい写真を撮影する</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 2: Upload existing photo -->
+      <section id="step-upload" class="step">
+        <h2>既存の写真をアップロードする</h2>
+        <div class="upload-area">
+          <input type="file" accept="image/jpeg,image/png,image/heic,image/heif,image/webp" id="fileInput" name="image" />
+          <div class="upload-hint">
+            デバイスから写真を選択してください
+          </div>
+        </div>
+        <div class="step-controls">
+          <button id="backFromUpload" class="btn-secondary">戻る</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Camera capture -->
+      <section id="step-camera" class="step">
+        <h2>新しい写真を撮影する</h2>
+        <div class="camera">
+          <div class="video-wrap">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="overlay" aria-hidden="true"></canvas>
+            <div class="guidance" id="guidanceText">
+                丸の中に顔を合わせ、準備ができたら撮影してください。
+            </div>
+          </div>
+          <div class="controls">
+            <button id="captureBtn" disabled>撮影</button>
+            <button id="backFromCamera" class="btn-secondary" disabled>戻る</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Preview and confirm -->
+      <section id="step-preview" class="step">
+        <h2>投稿する写真のプレビュー</h2>
+        <div class="hint">
+            撮影のコツ：正面を向き、目を開け、表情は中立に。可能であれば帽子や眼鏡を外してください。
+        </div>
+        <div id="preview" class="preview-large"></div>
+        <div class="preview-controls">
+          <button id="confirmUpload" class="btn-primary">
+            確認してアップロードする
+          </button>
+          <button id="retryPhoto" class="btn-secondary">やり直す</button>
+        </div>
+        <div class="hint">
+            アップロードすることにより、<a href="privacy.html" class="privacy-link">プライバシーポリシー</a>に同意したものとみなされます。
+        </div>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <p>
+        「みんなの駅長」における個人情報の取り扱いについては<a href="privacy.html" class="privacy-link">プライバシーポリシー</a>をご覧ください。<br>© 2025 <a href="https://03080.jp" class="privacy-link">03080.jp</a>
+      </p>
+    </footer>
+    <script src="../app.js"></script>
+  </body>
+</html>

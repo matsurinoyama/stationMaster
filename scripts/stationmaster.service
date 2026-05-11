@@ -1,0 +1,17 @@
+[Unit]
+Description=StationMaster downloader + headless Processing/Java
+After=network-online.target graphical.target display-manager.service
+Wants=network-online.target graphical.target
+
+[Service]
+Type=simple
+User=matsurinoyama
+# ExecStart should point to the start_stationmaster.sh absolute path; edit before installing
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/matsurinoyama/.Xauthority
+ExecStart=/bin/bash /home/matsurinoyama/stationMaster/scripts/start_stationmaster.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
